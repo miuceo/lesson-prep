@@ -1,0 +1,15 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# SQLite database (created automatically on first start)
+backend/data/
+*.db
+*.db-wal
+*.db-shm
+
+# Tools
+.vercel/
+.DS_Store
+Thumbs.db
