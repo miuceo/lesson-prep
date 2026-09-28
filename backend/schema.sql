@@ -24,6 +24,13 @@ CREATE TABLE IF NOT EXISTS tasks (
     updated_at  TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ', 'now'))
 );
 
+-- Small key/value table. 'seeded' makes sure demo data is added only once,
+-- even when several servers start at the same moment (Vercel can do that).
+CREATE TABLE IF NOT EXISTS app_meta (
+    key   TEXT PRIMARY KEY,
+    value TEXT
+);
+
 CREATE INDEX IF NOT EXISTS idx_tasks_status  ON tasks (status);
 CREATE INDEX IF NOT EXISTS idx_tasks_project ON tasks (project_id);
 CREATE INDEX IF NOT EXISTS idx_tasks_due     ON tasks (due_date);

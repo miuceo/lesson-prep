@@ -79,7 +79,13 @@ def init_db() -> None:
             conn.execute("PRAGMA synchronous = NORMAL")
         conn.executescript(SCHEMA_PATH.read_text(encoding="utf-8"))
         if fetch_one(conn, "SELECT COUNT(*) AS n FROM projects")["n"] == 0:
-            _seed(conn)
+            # Only one server wins this INSERT (the key is unique), so demo data is added once.
+            claimed = conn.execute(
+                "INSERT OR IGNORE INTO app_meta (key, value) VALUES ('seeded', ?)",
+                (date.today().isoformat(),),
+            ).rowcount
+            if claimed == 1:
+                _seed(conn)
 
 
 def _seed(conn) -> None:

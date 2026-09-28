@@ -298,5 +298,6 @@ Bu ilovada bitta sahifa ochilishi taxminan 2–5 ta API so'rov qiladi. Demak, oy
   ```sql
   DELETE FROM tasks;
   DELETE FROM projects;
+  DELETE FROM app_meta;
   ```
   Keyin Vercel'da backendni **Redeploy** qiling. Birinchi so'rovda demo ma'lumotlar qaytadan qo'shiladi.

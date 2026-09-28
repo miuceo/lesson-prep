@@ -1,6 +1,6 @@
 // Backend manzili (Vercel'dagi backend loyihasi). Deploydan keyin shu yerga yozing:
 // Backend URL (your backend project on Vercel). Fill this in after deploying:
-var BACKEND_URL = ""; // masalan: "https://vazifa-api.vercel.app"
+var BACKEND_URL = "https://vazifa-api.vercel.app";
 
 (function () {
   var local = location.protocol === "file:" || /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
